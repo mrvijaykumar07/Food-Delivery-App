@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+*{
+    background-color:transparent;
+    color:black;
+}
+
+
+.black-overlay{
+    background-color:rgba(0, 0, 0, 0.605);
+}
