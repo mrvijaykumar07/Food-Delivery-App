@@ -61,9 +61,9 @@ const OnlineRestaurant = (e) => {
                      {/* Link Wrap */}
                      <Link to={`/ResturantMenu/${item?.info?.id}`}>
                        {/* Image */}
-                       
+                    
                        <img
-                         className=" border-red-700 w-[42vw] h-[48vw]  md:w-[250px] md:h-[160px] rounded-lg object-cover transform transition-transform duration-300 ease-in-out group-hover:scale-105"
+                         className=" w-full h-[48vw]  md:w-[250px] md:h-[160px] rounded-lg object-cover transform transition-transform duration-300 ease-in-out group-hover:scale-105"
                          src={`https://media-assets.swiggy.com/swiggy/image/upload/${item?.info?.cloudinaryImageId}`}
                          alt={`Image of ${item?.info?.name}`}
                        />

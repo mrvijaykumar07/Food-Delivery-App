@@ -39,7 +39,7 @@ const FullMenuPage = () => {
         (parseData?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards).filter(
           (data) => data?.card?.card?.itemCards
         );
-      console.log(actualData);
+     
 
       SetAllItemsData(actualData);
     }

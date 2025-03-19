@@ -36,7 +36,7 @@ const Navbar = () => {
     const data = await searchResponse.json();
     const parseSearchData = JSON.parse(data.contents);
     setSearchData(parseSearchData.data);
-    console.log(parseSearchData.data);
+  
   }
 
   // Fetch Latitude & Longitude
@@ -53,7 +53,7 @@ const Navbar = () => {
     const parseLatLongData = JSON.parse(LatLongdata.contents);
     setLatLongData(parseLatLongData.data);
 
-    console.log("latLongData", parseLatLongData.data);
+    
     setLat(latLongData[0].geometry.location.lat);
     setLng(latLongData[0].geometry.location.lng);
   }

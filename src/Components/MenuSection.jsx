@@ -5,9 +5,8 @@ const MenuSection = (e) => {
 
   const [tValue, setValue] = useState(0);
 
-  
   const moveLeft = () => {
-    setValue((prev) => Math.min(prev + 300, 0)); 
+    setValue((prev) => Math.min(prev + 300, 0));
   };
 
   const moveRight = () => {
@@ -17,9 +16,7 @@ const MenuSection = (e) => {
 
   return (
     <>
-     
       <div className="md:px-[160px] border mt-[30px] md:mt-[50px] flex flex-row justify-between">
-
         <span className="font-bold md:text-[24px] pl-4 pb-4 ">
           What's on Your Mind?
         </span>
@@ -37,8 +34,6 @@ const MenuSection = (e) => {
 
       {/* Scrollable Image Row */}
       <div className="overflow-hidden  md:mx-[200px] no-scrollbar">
-
-
         <div
           className="flex space-x-6"
           style={{
@@ -55,12 +50,8 @@ const MenuSection = (e) => {
               />
             </div>
           ))}
-
         </div>
 
-
-
- 
         <div
           className="flex md:hidden space-x-6"
           style={{
@@ -68,20 +59,19 @@ const MenuSection = (e) => {
             transition: "transform 0.5s ease-in-out",
           }}
         >
-          {data.slice().reverse().map((item, index) => (
-            <div key={index} className="flex-shrink-0 cursor-pointer">
-              <img
-                className="md:w-[140px] w-[20vw] rounded-lg"
-                src={`https://media-assets.swiggy.com/swiggy/image/upload/${item.imageId}`}
-                alt={`Menu item ${index + 1}`}
-              />
-            </div>
-          ))}
-
+          {data
+            .slice()
+            .reverse()
+            .map((item, index) => (
+              <div key={index} className="flex-shrink-0 cursor-pointer">
+                <img
+                  className="md:w-[140px] w-[20vw] rounded-lg"
+                  src={`https://media-assets.swiggy.com/swiggy/image/upload/${item.imageId}`}
+                  alt={`Menu item ${index + 1}`}
+                />
+              </div>
+            ))}
         </div>
-
-
-
       </div>
     </>
   );

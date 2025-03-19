@@ -11,7 +11,6 @@ import Footer from "./Footer";
 
 const Body = () => {
   const { menuData, resturantData, city } = useContext(ResContext);
-  console.log("Res Data on Body",resturantData);
   return (
     <div>
       <MenuSection data={menuData} />
