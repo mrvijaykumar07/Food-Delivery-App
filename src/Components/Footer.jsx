@@ -14,13 +14,13 @@ const Footer = () => {
 <div className="flex" >
           <img
             className="md:w-[150px] w-[100px] bg-transparent block md:inline "
-            src="public/images/Footer/play_store.avif"
+            src="public/images/play_store.avif"
             alt="Play Store"
           />
 
           <img
             className="md:w-[150px] w-[100px] bg-transparent  "
-            src="public/images/Footer/app_store.avif"
+            src="public/images/app_store.avif"
             alt=" App Store"
           />
 </div>

@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([["vendors-web"],{thKP:function(e,o,n){"use strict";var r=n("vOnD");Object.defineProperty(o,"useTheme",{enumerable:!0,get:function(){return r.useTheme}})},uSLT:function(e,o,n){"use strict";var r=n("vOnD");o.useColorMode=()=>{const e=r.useTheme(),{colorMode:o}=e;return{colorMode:o}}}}]);
-//# sourceMappingURL=vendors-web.89cf2fba34b14a0.js.map

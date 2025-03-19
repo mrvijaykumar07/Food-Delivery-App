@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([["vendors-dls~7db0c"],{shnv:function(e,n,t){"use strict";var r=t("q1tI");n.Portal=e=>{var n;return"undefined"==typeof window?null:t("i8i4").createPortal(e.children,(e=>{const n=r.useRef(document.createElement("div"));return r.useEffect((function(){const t=n.current,r=document.querySelector(e);return null==r||r.appendChild(t),function(){null==r||r.removeChild(t)}}),[n,e]),n.current})(null!==(n=e.root)&&void 0!==n?n:"body"))}}}]);
-//# sourceMappingURL=vendors-dls~7db0c.89cf2fba34b14a0.js.map
