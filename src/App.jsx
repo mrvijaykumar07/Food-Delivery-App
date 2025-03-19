@@ -6,6 +6,7 @@ import { ResProvider } from "./Data/ResturantData";
 import "./index.css";
 import FullMenuPage from "./Pages/MenuPage/FullMenuPage";
 
+
 function App() {
   return (
     <ResProvider>
@@ -14,6 +15,7 @@ function App() {
 
         <Route path="/" element={<Navbar />}>
           <Route index element={<Body />} />
+    
           <Route index path="/ResturantMenu/:id" element={<FullMenuPage />} />
         </Route>
       </Routes>

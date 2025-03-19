@@ -3,19 +3,25 @@ import React from "react";
 const RatingBox = (e) => {
   const RatingData = e.data;
   return (
-    <div className="px-[330px]">
+    <div className="md:px-[330px] px-[3px]">
       <div className="border-b pb-4 mb-4">
         <span className="text-gray-600  py-[5px] mb-[40px] ">
           <span>Home / </span>
           <span> {RatingData?.city} / </span>
           <span> {RatingData?.name} </span>
         </span>
-        <h1 className="text-2xl font-bold text-red-800 pt-[30px] px-[5px] ">
+        <h1 className="md:text-2xl text-xl font-bold text-red-800 pt-[30px] px-[5px] ">
           {RatingData?.name}
         </h1>
       </div>
 
-      <div className="mt-2 bg-transparent border border-black h-[165px] rounded-3xl p-[20px] shadow-lg my-[10px] ">
+
+
+      <div className="bg-gradient-to-t from-slate-300 to-transparent h-full w-full rounded-3xl px-[15px] pb-[18px]">
+
+
+
+      <div className="mt-2 bg-white border border-black h-[165px] rounded-3xl p-[20px] md:w-full ">
         <i className="fa-regular fa-star text-green-600 pr-2"></i>
         <span className="text-gray-700 font-bold">
           {RatingData?.avgRatingString} ({RatingData?.totalRatingsString}) ·{" "}
@@ -44,6 +50,12 @@ const RatingBox = (e) => {
           </div>
         </div>
       </div>
+
+
+      </div>
+
+
+
     </div>
   );
 };

@@ -16,12 +16,16 @@ const OnlineRestaurant = (e) => {
 
   return (
     <>
-      <div className="px-[150px] border mt-[90px] flex flex-row justify-between ">
-        <span className="font-bold text-[25px] pl-[30px]">
-          Restaurants with online food delivery in {city}
+       <div className="md:px-[160px] border mt-[30px] md:mt-[60px] flex flex-row justify-between">
+      <span className="font-bold md:text-[25px] pl-4 md:pl-[30px]">
+          Top restaurant chains in {city}
         </span>
       </div>
-      <div className=" flex gap-5 justify-around  px-[190px]  list-none mr-[140px] my-[18px]">
+
+
+
+      <div className=" flex gap-5 justify-around  md:px-[190px]  list-none pl-[12px] md:mr-[140px] my-[18px]   overflow-hidden whitespace-nowrap truncate  ">
+
         <li className="border border-black rounded-3xl  px-[10px] py-[5px] text-[12px] ">
           Filter <i className="fa-solid fa-filter"></i>{" "}
         </li>
@@ -29,6 +33,7 @@ const OnlineRestaurant = (e) => {
           Sort By{" "}
           <i className="fas fa-angle-down pl-2 text-black cursor-pointer"></i>{" "}
         </li>
+
         {links.map((item2, index) => (
           <li
             className="border border-black rounded-3xl  px-[10px] py-[5px] text-[12px] "
@@ -37,41 +42,74 @@ const OnlineRestaurant = (e) => {
             {item2}
           </li>
         ))}
+
+
       </div>
 
+
+
+
       {/* Grid Layout for Restaurant Items */}
-      <div className="grid grid-cols-4 gap-6 px-[170px] py-[20px]  ">
-        {ResturantData.map((item, index) => (
-          <div key={index} className=" flex-shrink-0 mr-[27px] relative group ">
-            <Link to={"/ResturantMenu"}>
-              <img
-                className="w-[250px] h-[160px] rounded-lg object-cover transform transition-transform duration-300 ease-in-out group-hover:scale-105"
-                src={`https://media-assets.swiggy.com/swiggy/image/upload/${item?.info?.cloudinaryImageId}`}
-                alt={`Image of ${item.name}`}
-              />
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6 pl-[18px] md:px-[170px] py-[20px]  ">
 
-              <div className=" bg-transparent  absolute top-28 w-full h-[52px] bg-gradient-to-t from-black from-4%  to-transparent to-90%  flex items-center  transform transition-transform duration-300 ease-in-out group-hover:scale-105  rounded-lg ">
-                <span className="text-[20px] bg-transparent font-bold text-white px-[5px]  ">
-                  {item?.info?.aggregatedDiscountInfoV3?.discountTag}{" "}
-                  {item?.info?.aggregatedDiscountInfoV3?.header}{" "}
-                  {item?.info?.aggregatedDiscountInfoV3?.subHeader}
-                </span>
-              </div>
-            </Link>
-            {/* Other Content */}
-            <span className="text-[20px] font-bold block mt-2">
-              {item?.info?.name}
-            </span>
-            <i className="fa-regular fa-star text-green-600 pr-[10px]"></i>
-            <span className="font-bold">{item?.info?.avgRating} . </span>
-            <span className="font-bold">{item?.info?.sla?.slaString}</span>
 
-            <span className="block">{item?.info?.cuisines}</span>
-            <span className="block font-bold text-gray-800">
-              {item?.info?.areaName}
-            </span>
-          </div>
-        ))}
+       {ResturantData.map((item, index) => (
+                   <div
+                     key={index}
+                     className="   flex-shrink-0 mr-2 text-left relative group"
+                   >
+                     {/* Link Wrap */}
+                     <Link to={`/ResturantMenu/${item?.info?.id}`}>
+                       {/* Image */}
+                       
+                       <img
+                         className=" border-red-700 w-[42vw] h-[48vw]  md:w-[250px] md:h-[160px] rounded-lg object-cover transform transition-transform duration-300 ease-in-out group-hover:scale-105"
+                         src={`https://media-assets.swiggy.com/swiggy/image/upload/${item?.info?.cloudinaryImageId}`}
+                         alt={`Image of ${item?.info?.name}`}
+                       />
+       
+                       {/* Gradient Overlay with Text */}
+                       <div className="hidden lg:flex absolute top-28 lg:w-full h-[45px] md:h-[52px] w-[125px] bg-gradient-to-t from-black from-8% to-transparent to-95% items-center transform transition-transform duration-300 ease-in-out group-hover:scale-105 rounded-lg"></div>
+                       {/*Discount*/}
+                  <div   className="absolute px-[7px] top-28 md:top-28 lg:w-full  h-[45px] md:h-[52px] w-[125px]  items-center transform transition-transform duration-300 ease-in-out group-hover:scale-105 rounded-lg"     >
+                         <span className=" bg-transparent font-bold text-white px-[5px] max-w-[250px]">
+                      
+                           <span className=" block md:inline text-white font-bold md:text-[18px]  text-[16px] ">
+                             {item?.info?.aggregatedDiscountInfoV3?.header}{" "}
+                             <span className="block md:inline text-white font-bold text-[12px] md:text-[18px] drop-shadow-lg"  >
+                             {item?.info?.aggregatedDiscountInfoV3?.subHeader}
+                             </span>
+                           </span>
+                         </span>
+                       </div>
+                     </Link>
+       
+                     {/* Other Content */}
+                     <span className="text-[15px] md:text-[20px] font-bold block w-[170px] truncate">
+                       {item?.info?.name}
+                     </span>
+       
+                     <i className="fa-regular fa-star text-green-600 pr-[5px] md:pr-[10px]"></i>
+                     <span className="font-bold text-[15px] md:text-[16px]">
+                       {item?.info?.avgRating} .{" "}
+                     </span>
+                     <span className="font-bold text-sm md:text-xl text-[15px] md:text-[15px] ">
+                       {item?.info?.sla?.slaString}
+                     </span>
+                     <span className="block w-[170px] md:w-[230px] text-[14px] md:text-[15px] text-gray-600 truncate overflow-hidden whitespace-nowrap">
+                       {item?.info?.cuisines}
+                     </span>
+       
+                     <span className="block font-bold overflow-hidden whitespace-nowrap truncate text-[14px] text-gray-500">
+                       {item?.info?.areaName}
+                     </span>
+                   </div>
+                 ))}
+       
+
+
+
+
       </div>
     </>
   );

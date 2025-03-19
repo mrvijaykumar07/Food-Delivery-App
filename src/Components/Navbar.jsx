@@ -9,6 +9,7 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const [latLongData, setLatLongData] = useState([]);
   const [placeId, setPlaceId] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false); // Sidebar toggle state
 
   const { setCity, setLat, setLng } = useContext(ResContext);
 
@@ -79,7 +80,7 @@ const Navbar = () => {
     <>
       {/* Overlay and Sidebar */}
       <div
-        className="black-overlay w-full h-full z-10 fixed top-0 left-0 bg-black bg-opacity-50 duration-500"
+        className="black-overlay w-full h-full z-10 fixed top-0 left-0 bg-black border-red-900 bg-opacity-50 duration-500"
         onClick={toggleChange}
         style={{
           opacity: toggle ? 1 : 0,
@@ -89,7 +90,7 @@ const Navbar = () => {
       >
         <div
           onClick={(e) => e.stopPropagation()}
-          className="bg-white w-[500px] h-full duration-500 absolute top-0"
+          className="bg-slate-200 w-[390px] md:w-[500px] h-full duration-500 absolute top-0"
           style={{
             left: toggle ? "0%" : "-100%",
           }}
@@ -100,7 +101,7 @@ const Navbar = () => {
                 <input
                   type="text"
                   onChange={(e) => setSearchEntry(e.target.value)}
-                  className="w-full py-[10px] pl-[10px] pr-[40px] border-none outline-none"
+                  className="w-full  md:pr-[40px] border-none outline-none"
                   placeholder="Search..."
                 />
                 <i className="fa-solid fa-magnifying-glass absolute top-[50%] right-[10px] transform -translate-y-[50%] text-gray-500"></i>
@@ -135,7 +136,7 @@ const Navbar = () => {
 
       {/* Navbar */}
       <div
-        className="navbar w-full px-[150px] h-[80px] bg-white text-black flex flex-row justify-between items-center"
+        className="navbar w-full sm:px[10px] md:px-[150px] h-[80px] bg-white text-black flex flex-row justify-between items-center"
         style={{
           boxShadow: "0 1px 4px rgba(0, 0, 0, 0.5)",
           zIndex: 10,
@@ -143,33 +144,36 @@ const Navbar = () => {
         }}
       >
         {/* Left Section */}
-        <div className="p-[15px] flex items-center space-x-5">
+        <div className="p-[1.5vw] flex items-center space-x-3">
           <Link to={"/"}>
-            <img className="w-[50px]" src="/images/logo.png" alt="LOGO" />
+            <img
+              className="w-[20vw] md:w-[10vw] "
+              src="/images/NewLOgo-tb.png"
+              alt="LOGO"
+            />
           </Link>
           <div className="flex items-center space-x-2">
-            <img
-              className="w-[30px]"
-              src="/images/location.png"
-              alt="Location"
-            />
-            <div>
-              <span className="text-[20px] font-bold">Others</span>
-              <span className="text-slate-400 pl-[3px]">
-                {latLongData.length > 0
-                  ? latLongData[0].formatted_address
-                  : "Bhubaneswar, Odisha, India"}
-              </span>
-            </div>
+        
+          <div>
+  <span className="md:text-[16px] text-[8px] font-bold text-orange-400 ">
+    location 
+  </span>
+  <span className="text-slate-400 pl-[3px] md:text-[16px] md:inline hidden">
+    {latLongData.length > 0
+      ? latLongData[0].formatted_address
+      : "Bhubaneswar, Odisha, India"}
+  </span>
+</div>
+
             <i
-              className="fas fa-angle-down pl-2 text-orange-400 cursor-pointer"
+              className="fas fa-angle-down  text-orange-400 cursor-pointer text-[12px] pt-[5px] md:text-[15px] "
               onClick={toggleChange}
             ></i>
           </div>
         </div>
 
-        {/* Right Section */}
-        <ul className="flex flex-row gap-7 list-none p-[20px] items-center">
+        {/* Right Side - Full Menu on Desktop, Only Sign Up Icon on Mobile */}
+        <div className="hidden md:flex flex-row gap-7 list-none p-[1vw] items-center">
           {Links.map((item, index) => (
             <li
               key={index}
@@ -181,7 +185,40 @@ const Navbar = () => {
               <span className="group-hover:text-orange-400">{item.label}</span>
             </li>
           ))}
-        </ul>
+        </div>
+        {/* Mobile View - Only Sign Up Icon */}
+        <div className="md:hidden flex items-center">
+          <button onClick={() => setMenuOpen(true)} className="text-black">
+            <i className="fa-solid fa-user text-[5vw] pr-[4vw] md:hidden  cursor-pointer hover:text-orange-400"></i>
+          </button>
+        </div>
+
+        {/* Sidebar for Mobile */}
+        <div
+          className={`fixed top-0 right-0 h-full w-[60vw] sm:w-[40vw] bg-white shadow-lg z-50 transform ${
+            menuOpen ? "translate-x-0" : "translate-x-full"
+          } transition-transform duration-300 md:hidden`}
+        >
+          <button
+            className="absolute top-4 right-4 text-2xl text-gray-600"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            ✖
+          </button>
+
+          <div className="flex flex-col items-start p-6 mt-12 space-y-4">
+            {Links.map((item, index) => (
+              <Link
+                key={index}
+                to={"/"}
+                className="text-lg font-semibold flex items-center space-x-2"
+              >
+                <i className={`fa-solid ${item.icon}`}></i>
+                <span>{item.label}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* Outlet for Nested Routes */}

@@ -23,10 +23,10 @@ const DealsSection = (e) => {
   };
 
   return (
-    <div className="px-[330px]">
+    <div className="md:px-[330px] px-[4px]">
       <div className="mb-8 ">
         <div className="flex justify-between items-center mb-6 ">
-          <h2 className="text-2xl font-bold">Deals for You</h2>
+          <h2 className="md:text-2xl text-xl font-bold">Deals for You</h2>
 
           <div className="p-[5px]">
             <i
@@ -41,7 +41,7 @@ const DealsSection = (e) => {
         </div>
         <div className="overflow-x-hidden">
           <div
-            className="flex space-x-4 transition-transform duration-300 mx-[20px] "
+            className="flex space-x-4 transition-transform duration-300 md:mx-[20px] mx-[5px]"
             style={{ transform: `translateX(${dealsScroll}px)` }}
           >
             {DealData.map((item, index) => (

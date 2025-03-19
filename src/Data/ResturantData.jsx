@@ -24,7 +24,7 @@ export const ResProvider = ({ children }) => {
       console.log("Fetching Restaurant Data...");
       const result = await response.json();
       const parseData = JSON.parse(result.contents);
-
+      console.log("parse data",parseData)
       setMenuData(
         parseData?.data?.cards[0]?.card?.card?.imageGridCards?.info || []
       );
@@ -41,6 +41,11 @@ export const ResProvider = ({ children }) => {
   useEffect(() => {
     fetchData();
   }, [lat, lng]);
+  useEffect(() => {
+   console.log("resturant",resturantData);
+   console.log("Menu data",menuData)
+  }, [resturantData, menuData]);
+
 
   return (
     <ResContext.Provider
