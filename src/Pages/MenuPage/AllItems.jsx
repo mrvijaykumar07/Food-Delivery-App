@@ -14,7 +14,6 @@ const AllItems = ({ data }) => {
 
         return (
           <div key={index}>
-            {/* Header with Toggle Icon */}
             <div className="flex justify-between">
               <h2 className="font-bold md:text-[20px] text-[17x] px-[12px] ">
                 {item.card.card.title} ({innerArray.length})
@@ -78,21 +77,17 @@ const AllItems = ({ data }) => {
                           </span>
                         </span>
                         <span
-  style={{
-    display: "-webkit-box",
-    WebkitLineClamp: 2,
-    WebkitBoxOrient: "vertical",
-    overflow: "hidden",
-    textOverflow: "ellipsis",
-  }}
-  className="block text-[14px] md:max-w-[700px] max-w-[180px]  "
->
-  {e.card.info?.description}
-</span>
-
-
-
-
+                          style={{
+                            display: "-webkit-box",
+                            WebkitLineClamp: 2,
+                            WebkitBoxOrient: "vertical",
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                          }}
+                          className="block text-[14px] md:max-w-[700px] max-w-[180px]  "
+                        >
+                          {e.card.info?.description}
+                        </span>
                       </div>
 
                       <div className="relative">
@@ -118,7 +113,7 @@ const AllItems = ({ data }) => {
               </div>
             )}
 
-            {/* Separator */}
+    
             <div className="w-full h-[15px] bg-slate-200"></div>
           </div>
         );

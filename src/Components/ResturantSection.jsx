@@ -8,17 +8,17 @@ console.log("Res Data on final page",ResturantData);
 
   const [tValue, setValue] = useState(0);
 
-  // Handlers for navigation
+  
   const moveLeft = () => {
-    setValue((prev) => Math.min(prev + 300, 0)); // Prevent moving beyond the first item
+    setValue((prev) => Math.min(prev + 300, 0)); 
   };
   
   const moveRight = () => {
-    const containerWidth = window.innerWidth * 0.8; // 80% of screen width
-    const cardWidth = 140; // Adjust as per your design
+    const containerWidth = window.innerWidth * 0.8; 
+    const cardWidth = 140; 
     const maxTranslate = -(ResturantData.length * cardWidth - containerWidth);
   
-    setValue((prev) => Math.max(prev - 300, maxTranslate)); // Prevent over-scrolling
+    setValue((prev) => Math.max(prev - 300, maxTranslate));
   };
   
   return (
@@ -30,7 +30,7 @@ console.log("Res Data on final page",ResturantData);
 
         <div className=" pb-4 pr-[20px] md:pr-[50px]">
           <i
-            className="fa fa-arrow-left bg-slate-300 text-black rounded-full md:text-[20px] text-[15px] md:p-[10px]  p-[5px] cursor-pointer"
+            className="fa fa-arrow-left bg-slate-300 text-black rounded-full md:text-[20px] text-[15px] mr-[4px] md:p-[10px]  p-[5px] cursor-pointer"
             onClick={moveLeft}
           ></i>
           <i
@@ -51,9 +51,9 @@ console.log("Res Data on final page",ResturantData);
               key={index}
               className=" md:w-64 md:pl-[5px] border-blue-950 flex-shrink-0 mr-2 text-left relative group"
             >
-              {/* Link Wrap */}
+           
               <Link to={`/ResturantMenu/${item?.info?.id}`}>
-                {/* Image */}
+                
                 <img
                   className=" border-red-700 w-[30vw] h-[38vw]  md:w-[250px] md:h-[160px] rounded-lg object-cover transform transition-transform duration-300 ease-in-out group-hover:scale-105"
                   src={`https://media-assets.swiggy.com/swiggy/image/upload/${item?.info?.cloudinaryImageId}`}

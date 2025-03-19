@@ -5,13 +5,13 @@ const MenuSection = (e) => {
 
   const [tValue, setValue] = useState(0);
 
-  // Handlers for navigation
+  
   const moveLeft = () => {
-    setValue((prev) => Math.min(prev + 300, 0)); // Prevent moving left beyond 0
+    setValue((prev) => Math.min(prev + 300, 0)); 
   };
 
   const moveRight = () => {
-    const maxTranslate = -(data.length * 140 - 300 * 3); // Use data.length
+    const maxTranslate = -(data.length * 140 - 300 * 3);
     setValue((prev) => Math.max(prev - 300, maxTranslate));
   };
 
@@ -25,7 +25,7 @@ const MenuSection = (e) => {
         </span>
         <div className=" pb-4 pr-[20px] md:pr-[50px]">
           <i
-            className="fa fa-arrow-left bg-slate-300 text-black rounded-full md:text-[20px] text-[15px] md:p-[10px]  p-[5px] cursor-pointer"
+            className="fa fa-arrow-left bg-slate-300 text-black rounded-full md:text-[20px] text-[15px] mr-[4px] md:p-[10px]  p-[5px] cursor-pointer"
             onClick={moveLeft}
           ></i>
           <i

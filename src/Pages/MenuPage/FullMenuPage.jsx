@@ -5,7 +5,6 @@ import RatingBox from "./RatingBox";
 import DealsSection from "./DealsSection";
 import AllItems from "./AllItems";
 import { ResContext } from "../../Data/ResturantData";
-import Footer from "../../Components/Footer";
 import FooAppLink from "./FooAppLink";
 
 const FullMenuPage = () => {
@@ -55,7 +54,7 @@ const FullMenuPage = () => {
       <RatingBox data={ratingData} />
       <DealsSection data={dealsData} />
       <AllItems data={allItemsData} />
-      <FooAppLink/>
+      <FooAppLink />
     </div>
   );
 };
