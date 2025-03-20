@@ -34,8 +34,8 @@ const Footer = () => {
             <div>
               <img
                 className=" bg-transparent w-[180px] "
-                src="public/images/NewLOgo-tb.png"
-                alt="Swiggy Logo"
+                src="images/NewLOgo-tb.png"
+                alt="Delish"
               />
               <span className="pl-[10px]">@ 2025 Vijay Kumar</span>
             </div>

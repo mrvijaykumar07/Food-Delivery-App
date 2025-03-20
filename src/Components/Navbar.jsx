@@ -9,9 +9,9 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const [latLongData, setLatLongData] = useState([]);
   const [placeId, setPlaceId] = useState("");
-  const [menuOpen, setMenuOpen] = useState(false); // Sidebar toggle state
+  const [menuOpen, setMenuOpen] = useState(false); 
 
-  const { setCity, setLat, setLng } = useContext(ResContext);
+  const { setCity,city, setLat, setLng } = useContext(ResContext);
 
   const toggleChange = () => {
     setToggle(!toggle);
@@ -42,27 +42,37 @@ const Navbar = () => {
   // Fetch Latitude & Longitude
   async function getLatAndLong() {
     if (!placeId) return;
-
+    
     const searchResponse = await fetch(
       "https://api.allorigins.win/get?url=" +
         encodeURIComponent(
           `https://www.swiggy.com/dapi/misc/address-recommend?place_id=${placeId}`
         )
     );
+    if (!searchResponse.ok) throw new Error("Network response was not ok");
+
     const LatLongdata = await searchResponse.json();
     const parseLatLongData = JSON.parse(LatLongdata.contents);
+
     setLatLongData(parseLatLongData.data);
 
     
-    setLat(latLongData[0].geometry.location.lat);
-    setLng(latLongData[0].geometry.location.lng);
   }
+
 
   useEffect(() => {
     if (latLongData.length > 0) {
+      console.log("Updating Lat & Lng:", latLongData[0].geometry.location);
+      setLat(latLongData[0].geometry.location.lat);
+      setLng(latLongData[0].geometry.location.lng);
       setCity(latLongData[0].address_components[0].long_name);
+
+      console.log(`New city ${city} latLong`,latLongData);
     }
   }, [latLongData]);
+
+
+
 
   // Fetch search results when searchEntry changes
   useEffect(() => {
