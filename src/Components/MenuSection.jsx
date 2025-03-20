@@ -19,7 +19,7 @@ const MenuSection = (e) => {
 
   return (
     <>
-      <div className="md:px-[160px] border mt-[30px] md:mt-[50px] flex flex-row justify-between">
+      <div className="md:px-[160px]  mt-[30px] md:mt-[50px] flex flex-row justify-between">
         <span className="font-bold md:text-[23px] pl-4 pb-4 ">
           What's on Your Mind?
         </span>

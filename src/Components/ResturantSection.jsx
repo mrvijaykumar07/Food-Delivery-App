@@ -22,7 +22,7 @@ const ResturantSection = (e) => {
   
   return (
     <>
-      <div className="md:px-[160px] border mt-[30px] md:mt-[60px] flex flex-row justify-between">
+      <div className="md:px-[160px]  mt-[30px] md:mt-[60px] flex flex-row justify-between">
         <span className="font-bold md:text-[25px] px-2 md:pl-[30px] text-[15px] ">
           Top restaurant chains in {city}
         </span>
