@@ -17,16 +17,27 @@ const FullMenuPage = () => {
   // Fetch Data
   async function fetchMenuData() {
     if (id) {
-      const response = await fetch(
-        `https://api.allorigins.win/get?url=${encodeURIComponent(
-          `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${lat}&lng=${lng}&restaurantId=${id}&catalog_qa=undefined&submitAction=ENTER`
-        )}`
-      );
+
+      // const response = await fetch(
+      //   `https://api.allorigins.win/get?url=${encodeURIComponent(
+      //     `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${lat}&lng=${lng}&restaurantId=${id}&catalog_qa=undefined&submitAction=ENTER`
+      //   )}`
+      // );
+
+      // const result = await response.json();
+      // const parseData = JSON.parse(result.contents);
 
 
+// const response = await fetch(
+//   `http://localhost:5000/api/menu?lat=${lat}&lng=${lng}&restaurantId=${id}`
+// );
 
-      const result = await response.json();
-      const parseData = JSON.parse(result.contents);
+    
+const response = await fetch(
+  `https://swiggy-backend-ubne.onrender.com/api/menu?lat=${lat}&lng=${lng}&restaurantId=${id}`
+);
+
+      const parseData=await response.json();
 
       console.log("All Data", parseData?.data?.cards);
 

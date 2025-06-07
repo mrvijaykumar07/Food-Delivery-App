@@ -27,19 +27,25 @@ const [pData,setpData]=useState([])
 
 
 
-const response = await fetch(
-  `https://thingproxy.freeboard.io/fetch/` +
-  `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING&_=${Date.now()}`
-);
+// const response = await fetch(
+//   `https://thingproxy.freeboard.io/fetch/` +
+//   `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING&_=${Date.now()}`
+// );
+
+
+
+// const response = await fetch(
+//   "https://api.allorigins.win/get?url=" +
+//   encodeURIComponent("https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.2961&lng=85.8245&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
+// );
 
 
 
 
+// const response = await fetch(`http://localhost:5000/api/swiggy?lat=${lat}&lng=${lng}`);
 
 
-
-
-
+const response = await fetch(`https://swiggy-backend-ubne.onrender.com/api/swiggy?lat=${lat}&lng=${lng}`);
 
 
 
