@@ -23,6 +23,8 @@ const FullMenuPage = () => {
         )}`
       );
 
+
+
       const result = await response.json();
       const parseData = JSON.parse(result.contents);
 

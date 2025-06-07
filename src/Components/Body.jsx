@@ -10,13 +10,13 @@ import RecomendCuisines from "./RecomendCuisines";
 import Footer from "./Footer";
 
 const Body = () => {
-  const { menuData, resturantData, city } = useContext(ResContext);
+  const { menuData, resturantData, city ,pData } = useContext(ResContext);
   return (
     <div>
       <MenuSection data={menuData} />
 
        <ResturantSection data={[resturantData, city]} />
-      <OnlineRestaurant data={[resturantData, city]} /> 
+      <OnlineRestaurant data={[resturantData, city, pData ]} /> 
       <RecomendResturant/>
       <RecomendCuisines/>
       <Footer/>

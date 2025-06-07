@@ -26,12 +26,12 @@ const RatingBox = (e) => {
 
 
   <div className="border-b pb-4 mb-4">
-    <span className="text-gray-600  py-[5px] mb-[40px] ">
+    <span className="text-gray-600 text-xl py-[5px] mb-[40px] ">
       <span>Home / </span>
       <span> {RatingData?.city} / </span>
       <span> {RatingData?.name} </span>
     </span>
-    <h1 className="md:text-2xl text-xl font-bold text-red-800 pt-[30px] px-[5px] ">
+    <h1 className="md:text-2xl text-lg font-bold text-red-800 pt-[30px] px-[5px] ">
       {RatingData?.name}
     </h1>
   </div>

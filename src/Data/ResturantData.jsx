@@ -11,32 +11,65 @@ export const ResProvider = ({ children }) => {
   const [lng, setLng] = useState("85.8245");
   const [city, setCity] = useState("Bhubaneswar");
 
+const [pData,setpData]=useState([])
   // Fetch Data
   async function fetchData(lat, lng) {
     try {
       console.log("Fetching data for lat:", lat, "lng:", lng);
-      const response = await fetch(
-        "https://api.allorigins.win/get?url=" +
-          encodeURIComponent(
-            `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING&_=${Date.now()}`
-          )
-      );
+      // const response = await fetch(
+      //   "https://api.allorigins.win/get?url=" +
+      //     encodeURIComponent(
+      //       `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING&_=${Date.now()}`
+      //     )
+      // );
+
+
+
+
+
+const response = await fetch(
+  `https://thingproxy.freeboard.io/fetch/` +
+  `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING&_=${Date.now()}`
+);
+
+
+
+
+
+
+
+
+
+
+
+
 
       if (!response.ok) throw new Error("Network response was not ok");
 
       console.log("Fetching Restaurant Data...");
-      const result = await response.json();
-      const parseData = JSON.parse(result.contents);
+      // const result = await response.json();
+
+      // const parseData = JSON.parse(result.contents);
+
+      const parseData = await response.json();
+
 
       console.log("Parsed Data:", parseData);
 
       setMenuData(
         parseData?.data?.cards[0]?.card?.card?.imageGridCards?.info || []
       );
+
+
       setResturantData(
         parseData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants || []
       );
+
+setpData(
+   parseData?.data?.cards[0]?.card?.card?.title || []
+      );
+
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -55,6 +88,7 @@ export const ResProvider = ({ children }) => {
   return (
     <ResContext.Provider
       value={{
+        pData,
         menuData,
         resturantData,
         lat,

@@ -35,7 +35,7 @@ const AllItems = ({ data }) => {
                       <div>
                         <img
                           className="w-[40px]"
-                          src="/public/images/veg.jpeg"
+                          src="/images/veg.jpeg"
                           alt="Veg"
                         />
 
